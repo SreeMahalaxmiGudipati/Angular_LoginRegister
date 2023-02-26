@@ -25,5 +25,9 @@ export class UserprofileService {
 
   constructor() { }
 
- 
+  getUsers() {
+    return this.users;
+  }
+
+
 }
