@@ -18,7 +18,7 @@ export class UserprofileService {
       user:'laxman',
       pass:'1234',
       phone:'8976459767',
-      address:'hyd'
+      address:'Banglore'
 
     }
   ]
