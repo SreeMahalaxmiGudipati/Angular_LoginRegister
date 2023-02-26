@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+
 import { Router } from '@angular/router';
 import { UserprofileService } from '../userprofile.service';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-login',
@@ -8,6 +9,8 @@ import { UserprofileService } from '../userprofile.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
+
+  @Output() msgToprofile = new EventEmitter<any>();
 
   constructor(private userprofile:UserprofileService,private router:Router){
   }
@@ -24,6 +27,7 @@ login()
   // else{
   //   alert("Login fail");
   // }
+  this.msgToprofile.emit(this.username);
   const users = this.userprofile.getUsers();
   const user = users.find(u => u.user === this.username && u.pass === this.pass);
   if (user) {
