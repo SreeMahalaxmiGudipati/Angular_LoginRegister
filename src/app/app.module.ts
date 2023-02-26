@@ -10,15 +10,6 @@ import { HomeComponent } from './home/home.component';
 import { ProfileComponent } from './profile/profile.component';
 import { FormsModule } from '@angular/forms';
 
-const appRoute : Routes=[
-  {path:'',component:HomeComponent},
-  {path:'home',component:HomeComponent},
-  {path:'login',component:LoginComponent},
-  {path:'register',component:RegisterComponent},
-  {path:'profile',component:ProfileComponent}
-]
-
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,8 +21,8 @@ const appRoute : Routes=[
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule,
-    RouterModule.forRoot(appRoute)
+    FormsModule
+   
   ],
   providers: [],
   bootstrap: [AppComponent]
