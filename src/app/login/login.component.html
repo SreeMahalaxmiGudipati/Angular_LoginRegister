@@ -5,19 +5,19 @@
         <tr>
             <td>UserName</td>
             <td>
-                <input name="username" />
+                <input type="text" [(ngModel)]="user" name="user">
             </td>
         </tr>
         <tr>
             <td>Password</td>
             <td>
-                <input type="password" name="password" />
+                <input type="password" [(ngModel)]="pass" name="pass">
             </td>
         </tr>
         <tr>
             <td>&nbsp;</td>
             <td>
-                <input type="submit" />
+                <input type="submit" (click)="login()"/>
                 <br />
                 <br>
                 <a routerLink="/register">Register</a>
