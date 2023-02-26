@@ -28,6 +28,7 @@ login()
   const user = users.find(u => u.user === this.user && u.pass === this.pass);
   if (user) {
     alert("Login success");
+    this.router.navigate(['profile']);
    
   } else {
    alert("Invalid username and password");
