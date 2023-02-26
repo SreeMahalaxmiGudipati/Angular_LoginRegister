@@ -1,17 +1,22 @@
-import { Component } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { UserprofileService } from '../userprofile.service';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.css']
 })
-export class ProfileComponent {
+export class ProfileComponent{
 
-  users:any;
-constructor(private userprofile:UserprofileService){}
+  users1:any;
+ userlogin:any;
+
+constructor(private userprofile:UserprofileService,private router:ActivatedRoute){}
 
 ngOnInit():void{
-  this.users=this.userprofile.users;
+
+ this.userlogin=this.userprofile.getUserByName("ram");
+ this.users1=this.userprofile.users;
 }
 }

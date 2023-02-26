@@ -25,9 +25,12 @@ export class UserprofileService {
 
   constructor() { }
 
-  getUsers() {
+ public getUsers() {
     return this.users;
   }
-
+ public getUserByName(name:any)
+ {
+  return this.users.find(users=>users.user===name);
+ }
 
 }
