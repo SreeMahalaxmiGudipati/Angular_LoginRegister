@@ -20,13 +20,7 @@ public pass:any;
 
 login()
 {
-  // if(this.user=='admin'&& this.pass=='1234'){
-  //   alert("Login success");
-  //   this.router.navigate(['profile']);
-  // }
-  // else{
-  //   alert("Login fail");
-  // }
+  
   this.msgToprofile.emit(this.username);
   const users = this.userprofile.getUsers();
   const user = users.find(u => u.user === this.username && u.pass === this.pass);
