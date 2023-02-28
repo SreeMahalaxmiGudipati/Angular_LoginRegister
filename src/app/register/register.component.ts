@@ -29,12 +29,15 @@ registerSubmitted(){
     this.registerForm.value.Phone,
     this.registerForm.value.pass
 ]).subscribe(res=>{
-  if(res=='Success'){
-    this.displayMsg='Account created successfully';
+  if(res==''){
+    this.displayMsg='Something wrong';
+    console.log(res);
     this.isAccountCreated=true;
   }
   else {
-    this.displayMsg='Something wrong';
+   
+    this.displayMsg='Account created successfully';
+    console.log(res);
     this.isAccountCreated=false;
   }
 
