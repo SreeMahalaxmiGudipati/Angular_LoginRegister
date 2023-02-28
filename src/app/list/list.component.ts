@@ -11,6 +11,7 @@ export class ListComponent {
 
   StudentArray:any[]=[];
   isResultLoaded=false;
+ 
   
 constructor(private userservice:UserService,private http:HttpClient){
   this.getAllStudents();
@@ -24,6 +25,15 @@ constructor(private userservice:UserService,private http:HttpClient){
      //   console.log(resultData);
         this.StudentArray=resultData;
         console.log(this.StudentArray);
+      });
+   }
+
+   DeleteStudent(data:any){
+      this.http.delete("https://localhost:7068/api/Students"+"/"+ data.id).subscribe((resultData:any)=>
+      {
+        console.log(resultData);
+        alert("Student details Deleted");
+        this.getAllStudents();  
       });
    }
 
