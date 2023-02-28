@@ -10,6 +10,7 @@ export class UserService {
   private baseUrl ="https://localhost:7068/api/";
   constructor(private http:HttpClient) { }
 
+
   registerUser(user:Array<String>)
   {
     return this.http.post(this.baseUrl + 'Students' ,{
@@ -20,6 +21,10 @@ export class UserService {
     {
       responseType:'text',
     });
+  }
+
+  loginUser(loginInfo:Array<String>){
+
   }
 
 }
