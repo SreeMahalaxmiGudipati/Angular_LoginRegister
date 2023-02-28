@@ -15,9 +15,14 @@ export class RegisterComponent {
   isAccountCreated: boolean=false;
   StudentArray:any[]=[];
   isResultLoaded=false;
+
+  Name:string="";
+  phone:string="";
+  pass:string="";
+  currentStudentID="";
   
 constructor(private userservice:UserService,private http:HttpClient){
-
+  this.getAllStudents();
 }
  
 public registerForm =new FormGroup({
@@ -47,6 +52,45 @@ registerSubmitted(){
             }
     });
  }
+ 
+
+ getAllStudents(){
+  this.http.get("https://localhost:7068/api/Students").subscribe((
+    resultData:any)=>
+    {
+      this.isResultLoaded=true;
+   //   console.log(resultData);
+      this.StudentArray=resultData;
+      console.log(this.StudentArray);
+    });
+ }
+
+
+ DeleteStudent(data:any){
+  this.http.delete("https://localhost:7068/api/Students"+"/"+ data.id).subscribe((resultData:any)=>
+  {
+    console.log(resultData);
+    alert("Student details Deleted");
+    this.getAllStudents();  
+  });
+}
+
+
+setCurrentData(data:any){
+  this.http.get("https://localhost:7068/api/Students"+"/"+ data).subscribe((resultData:any)=>
+  {
+    console.log(resultData);
+    this.Name=resultData.name;
+  this.phone=resultData.phone;
+  this.pass=resultData.pass;
+  });
+  console.log(data);
+  this.currentStudentID=data;
+//  console.log(this.currentStudentID);
+  console.log(this.phone);
+}
+
+
 
 
 }
