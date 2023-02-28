@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Form, FormControl,FormGroup} from '@angular/forms';
 import { UserService } from '../shared/user.service';
+import {HttpClient} from '@angular/common/http';
 
 
 @Component({
@@ -12,8 +13,12 @@ export class RegisterComponent {
 
   displayMsg:string='';
   isAccountCreated: boolean=false;
+  StudentArray:any[]=[];
+  isResultLoaded=false;
   
-constructor(private userservice:UserService){}
+constructor(private userservice:UserService,private http:HttpClient){
+  
+}
  
 public registerForm =new FormGroup({
   Name:new FormControl(''),
@@ -45,7 +50,7 @@ registerSubmitted(){
    
  }
 
-
+   
 
  
 
