@@ -13,6 +13,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { ListComponent } from './list/list.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,6 +22,7 @@ import { ListComponent } from './list/list.component';
     HomeComponent,
     ProfileComponent,
     ListComponent
+
   ],
   imports: [
     BrowserModule,

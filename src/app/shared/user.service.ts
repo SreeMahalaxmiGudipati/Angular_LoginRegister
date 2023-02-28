@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 
 @Injectable({
@@ -23,8 +24,9 @@ export class UserService {
     });
   }
 
-  loginUser(loginInfo:Array<String>){
-
+  getStudentById(id:string){
+    return this.http.get(this.baseUrl + 'Students/'+id);
   }
-
+  
+  
 }

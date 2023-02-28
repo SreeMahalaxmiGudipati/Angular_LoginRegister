@@ -17,7 +17,7 @@ export class RegisterComponent {
   isResultLoaded=false;
   
 constructor(private userservice:UserService,private http:HttpClient){
-  
+
 }
  
 public registerForm =new FormGroup({
@@ -29,29 +29,24 @@ public registerForm =new FormGroup({
 
 registerSubmitted(){
     
-  this.userservice.registerUser([
-    this.registerForm.value.Name,
-    this.registerForm.value.Phone,
-    this.registerForm.value.pass
-]).subscribe(res=>{
-  if(res==''){
-    this.displayMsg='Something wrong';
-    console.log(res);
-    this.isAccountCreated=true;
-  }
-  else {
-   
-    this.displayMsg='Account created successfully';
-    console.log(res);
-    this.isAccountCreated=false;
-  }
-
-    })
-   
+            this.userservice.registerUser([
+              this.registerForm.value.Name,
+              this.registerForm.value.Phone,
+              this.registerForm.value.pass
+          ]).subscribe(res=>{
+            if(res==''){
+              this.displayMsg='Something wrong';
+              console.log(res);
+              this.isAccountCreated=true;
+            }
+            else {
+            
+              this.displayMsg='Account created successfully';
+              console.log(res);
+              this.isAccountCreated=false;
+            }
+    });
  }
 
-   
-
- 
 
 }
