@@ -1,45 +1,39 @@
 <div class="register-container">
 <h2>Register</h2>
+<p class="text-center fs-3" [ngClass]="isAccountCreated ? 'text-success pb-1' : 'text-danger pb-1'" >{{displayMsg}}</p>
 
-<form method="post">
+<form [formGroup]="registerForm" (ngSubmit)="registerSubmitted()">
 
     <table>
-        <tr>
+        <!-- <tr>
             <td>Id</td>
             <td>
                 <input type="text" name="id">
             </td>
-        </tr>
+        </tr> -->
         <tr>
             <td>UserName</td>
             <td>
-                <input type="text" name="user" />
+                <input type="text" name="Name" formControlName="Name">
             </td>
         </tr>
-        <tr>
-        <td>Password</td>
-        <td>
-            <input type="password"  name="pass"/>
-        </td>
-    </tr>
+       
         <tr>
             <td>Contact No</td>
             <td>
-                <input type="text" name="phone" />
+                <input type="text" name="phone" formControlName="Phone">
             </td>
         </tr>
-        <!-- <tr> -->
-            <!-- <td>Address</td>
+        <tr>
+            <td>Password</td>
             <td>
-                <input type="text" name="address" />
+                <input type="password"  name="pass" formControlName="pass"/>
             </td>
-        </tr> -->
-           
-    
+        </tr>
         <tr>
             <td>&nbsp;</td>
             <td>
-                <input type="submit" value="SAVE"  />
+                <button type="submit" value="SAVE" >SAVE</button>
                 <br><br>
                 <a routerLink="/login">Login</a>
             </td>
