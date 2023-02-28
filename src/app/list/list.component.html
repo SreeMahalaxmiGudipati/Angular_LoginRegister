@@ -17,7 +17,7 @@
                     <td>{{ StudentItem.phone }}</td>
                     <td>{{ StudentItem.password }}</td>
                   <td>
-                    <button type="button" class="btn btn-success">Edit</button>
+                    <button type="button" class="btn btn-success" [routerLink]="['/list','update',StudentItem.id]">Edit</button>
                     <button type="button" class="btn btn-danger" (click)="DeleteStudent(StudentItem)">Delete</button>
                   </td>
                 </tr>
