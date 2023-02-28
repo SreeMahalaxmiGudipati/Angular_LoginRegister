@@ -79,17 +79,45 @@ registerSubmitted(){
 setCurrentData(data:any){
   this.http.get("https://localhost:7068/api/Students"+"/"+ data).subscribe((resultData:any)=>
   {
-    console.log(resultData);
+ //   console.log(resultData);
     this.Name=resultData.name;
   this.phone=resultData.phone;
   this.pass=resultData.pass;
   });
   console.log(data);
   this.currentStudentID=data;
-//  console.log(this.currentStudentID);
   console.log(this.phone);
 }
 
+
+UpdateStudent(){
+  let bodyData={
+    "Name":this.Name,
+    "Phone":this.phone,
+    "Password": this.pass,
+    "Id":this.currentStudentID
+  };
+  this.http.put("https://localhost:7068/api/Students"+"/"+ this.currentStudentID ,bodyData).subscribe((resultData:any)=>
+  {
+    console.log(resultData);
+    alert("Student details Updated");
+    this.getAllStudents(); 
+  });
+  console.log(bodyData);
+}
+
+save()
+{
+ if(this.currentStudentID=='')
+ {
+   console.log("resgister");
+   this.registerSubmitted();
+ }
+ else{
+   console.log("update");
+   this.UpdateStudent();
+ }
+}
 
 
 
